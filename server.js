@@ -21,6 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// You can add more interesting messages here.
 const messages = [
   '\u4E3B\u4EBA\u7ED9\u4E86\u591A\u6BD4\u4E00\u53EA\u889C\u5B50!',
   '\u591A\u6BD4\u662F\u4E2A\u81EA\u7531\u7684\u5C0F\u7CBE\u7075!',
