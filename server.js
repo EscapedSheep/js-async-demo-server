@@ -42,10 +42,16 @@ function getMessageFromComplexity (complexity) {
 }
 
 app.post('/api/message', asyncHandler(async (req, res) => {
-  const { text, complexity } = req.body;
+  const { text, complexity, error } = req.body;
   const timeout = (complexity || 0) * 1000;
   await delay(timeout);
-  res.status(200).json({
-    text: getMessageFromComplexity(complexity) + ' >>> in response of: ' + text
-  });
+  if (error) {
+    res.status(500).json({
+      text: '\u54CE\u5466\u6211\u53BB, \u670D\u52A1\u5668\u6302\u4E86 O_o >>> ' + text
+    });
+  } else {
+    res.status(200).json({
+      text: getMessageFromComplexity(complexity) + ' >>> ' + text
+    });
+  }
 }));
